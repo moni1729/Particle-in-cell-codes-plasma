@@ -44,4 +44,4 @@ Despite the heavy computational load, EPOCH provides a fully self-consistent way
 Together, these models provide a versatile toolkit for simulating and analyzing betatron radiation in modern accelerator experiments. 
 They support parameter scans, validation against analytical theory, and integration with machine learning-based beam reconstruction techniques.
 
-Paper(arXiv:2303.04213)
+[Modeling betatron radiation using particle-in-cell codes for plasma wakefield accelerator diagnostics)](https://arxiv.org/abs/2303.04213)
