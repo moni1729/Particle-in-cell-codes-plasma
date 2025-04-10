@@ -4,13 +4,13 @@
 This repository implements several methods for simulating betatron radiation from electron beams in plasma wakefield accelerators (PWFA),
 each offering different levels of physical fidelity and computational complexity. 
 
-n analytical model
+analytical model
 that describes the radiation spectrum from both single particles and full electron beams undergoing betatron oscillations in an
 idealized ion channel. Assuming paraxial motion and Gaussian beam distributions, this model provides closed-form expressions for 
 the total radiated power and spectral shape, characterized by normalized synchrotron functions. It is especially useful for 
 benchmarking numerical simulations and understanding the fundamental scaling of radiation properties with beam parameters such as spot size, energy, and emittance.
 
-# Idealized particle tracker with Liénard–Wiechert (LW) radiation 
+#  Liénard–Wiechert (LW) code
 
 Implemented in C++ and parallelized with Boost.MPI. In this model, macro-particles are sampled from a Gaussian distribution and tracked through idealized blowout regime fields
 using a fourth-order Runge-Kutta (RK4) integrator. These fields include linear transverse focusing and a constant longitudinal accelerating field. 
