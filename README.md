@@ -1,6 +1,5 @@
 # Idealized Particle Tracker + Liénard-Wiechert (LW) Radiation
 
-
 This repository implements several methods for simulating betatron radiation from electron beams in plasma wakefield accelerators (PWFA),
 each offering different levels of physical fidelity and computational complexity. 
 
