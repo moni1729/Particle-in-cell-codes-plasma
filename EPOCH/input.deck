@@ -1,0 +1,218 @@
+#Hosing instabily,wide in y
+#with EPOCH photons  
+begin:constant
+  gamma_f = 19753                        #gamma factor for beam
+  beam_v = c*sqrt(1.0-(1.0/(gamma_f*gamma_f)))     #speed of moving beam
+  beta = sqrt(beam_v*beam_v/(c*c))
+  em_zd = 3.4e-6    #normalized emittances
+  em_yd = 3.4e-6
+  mas_e = 9e-31     #mass of electron
+  beta_yd=0.7
+  beta_zd=0.7
+  pifac = sqrt(2.0*pi)*sqrt(2.0*pi)*sqrt(2.0*pi)  #just a factor
+  
+
+
+  #drive beam properties
+  npd = 2e10 		# particle  nos.
+  npcd = 4		# pseudo-particle per cell
+  sig_zd = 10*micro	# z size of beam 
+  sigma_zd = sig_zd
+  sig_yd = 10*micro	# y size of beam
+  sigma_yd = sig_yd
+  sig_xd = 10*micro	# x size of beam
+  sigma_xd = sig_xd
+  den_drive = npd	#particle no. density of beam
+  loc_zd = 0*micro		#assumed location of center of beam z coordinate
+  loc_yd = 0*micro
+  loc_xd = 300*micro
+  sigma_zpd = em_zd/(gamma_f*beta*sigma_zd)                  #sigma_xprime for drive
+  drive_ktzbym = sigma_zpd*sigma_zpd*beam_v*beam_v	    #Kb/(T*m)
+  sigma_ypd = em_yd/(gamma_f*beta*sigma_yd)
+  drive_ktybym = sigma_ypd*sigma_ypd*beam_v*beam_v
+  drive_profile = (den_drive/(sigma_xd*sigma_yd*sigma_zd*pifac))*gauss(y,loc_yd,sqrt(2)*sigma_yd)*gauss(z,loc_zd,sqrt(2)*sigma_zd)*gauss(x,loc_xd,sqrt(2)*sigma_xd)
+ 
+
+ 
+ #plasma properties
+  den_plasma = 1e23   #particle no density
+  npcp       = 8 	   #pseudo-particle per cell
+  plasma_ion_mass = 1836*1 #ionised lithium plasma
+  plasma_ion_charge = 1
+
+
+  c_by_omegap = 16.7*micro   #constant
+ 
+end:constant
+
+
+
+
+
+begin:control
+
+  z_min = -50.0*micro
+  z_max = 50*micro
+  y_min = -50.0*micro
+  y_max = 50*micro
+  x_min = 0.0*micro
+  x_max = 400.0*micro
+  nz=64
+  ny=64
+  nx=256
+  t_end = (600*milli)/(abs(beam_v)) 
+  stdout_frequency = 100
+
+end:control
+
+
+
+
+
+begin:qed
+
+use_qed = T
+qed_start_time = 0
+produce_photons = T
+photon_energy_min = 0.001 * kev
+photon_dynamics = T
+qed_table_location = ./TABLES
+
+end:qed
+
+
+begin:species
+
+name = photons
+npart = 0
+dump = T 
+identify:photon
+
+end:species
+
+ 
+
+
+
+
+
+
+
+
+
+begin:species
+
+  name = drive
+  charge = -1.0
+  mass = 1.0
+  npart_per_cell =  npcd
+  drift_x = (9e-31)*beam_v*gamma_f
+  density = drive_profile 
+  #alpha=0
+  temp_z = mas_e*drive_ktzbym/kb
+  temp_y = mas_e*drive_ktybym/kb
+  identify:electron
+
+  
+end:species
+
+
+
+begin:species
+
+  name = plasma_e
+  charge = -1.0
+  mass = 1.0
+  npart_per_cell =  npcp
+  density = den_plasma 
+
+
+end:species
+
+begin:species
+
+  name = plasma_ion
+  charge = plasma_ion_charge
+  mass = plasma_ion_mass
+  npart_per_cell =  npcp
+  density = den_plasma 
+  immobile = T
+  background_species = T
+
+end:species
+
+
+
+begin:boundaries
+
+  bc_x_min=open
+  bc_x_max=open
+  bc_y_min=open
+  bc_y_max=open
+  bc_z_min=open
+  bc_z_max=open
+
+end:boundaries
+
+
+
+begin:window
+
+  move_window = T
+  window_v_x = beam_v
+  window_start_time = 0.0
+  bc_x_min_after_move = simple_outflow
+  bc_x_max_after_move = simple_outflow
+
+end:window
+ begin:subset
+name = background1
+include_species:photons
+
+end:subset
+
+
+
+
+
+
+begin:output
+
+# If use_offset_grid is true then the code dumps a grid which displays
+  # positions relative to the left hand edge of the window
+  use_offset_grid = F
+
+ 
+
+  # Number of dt_snapshot between full dumps
+  full_dump_every = 10
+  restart_dump_every = -1
+  force_final_to_be_restartable = T
+
+  # Properties at particle positions
+  particles = always
+  id = always
+  px = always
+  py = always
+  pz = always
+  vx = never
+  vy = never
+  vz = never
+  charge = always
+  mass = never
+  relativistic mass = always
+  species_id = always
+
+
+  dt_snapshot = t_end/100
+  grid=never
+  charge_density = always
+  number_density = always+species
+  distribution_functions = never
+  particle_probes = never
+  particle_weight = always
+  particle_grid = background1 
+  
+
+
+end:output

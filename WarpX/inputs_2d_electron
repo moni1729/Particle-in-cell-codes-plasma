@@ -1,0 +1,83 @@
+# algo
+algo.maxwell_solver = Yee
+algo.particle_shape = 3
+
+# amr
+amr.blocking_factor = 32
+amr.max_grid_size = 64
+amr.max_level = 0
+amr.n_cell = 64 64
+
+# beam
+beam.charge = -q_e
+beam.initialize_self_fields = 0
+beam.injection_style = gaussian_beam
+beam.mass = m_e
+beam.momentum_distribution_type = gaussian
+beam.npart = 100
+beam.q_tot = -1e-12
+beam.ux_m = 0.0
+beam.ux_th = 2.0
+beam.uy_m = 0.0
+beam.uy_th = 2.0
+beam.uz_m = 500.0
+beam.uz_th = 50.0
+beam.x_m = 0.0
+beam.x_rms = 5e-07
+beam.y_m = 0.0
+beam.y_rms = 5e-07
+beam.z_m = -2.8e-05
+beam.z_rms = 5e-07
+
+# boundary
+boundary.field_hi = periodic periodic
+boundary.field_lo = periodic periodic
+boundary.particle_hi = periodic periodic
+boundary.particle_lo = periodic periodic
+
+# diagnostics
+diagnostics.diags_names = particle_diag field_diag particle_energy_diag
+
+# field_diag
+field_diag.diag_type = Full
+field_diag.fields_to_plot = Bx By Bz Ex Ey Ez jx jy jz rho
+field_diag.file_prefix = Python_BRsimulation_e/Python_BRsimulation_field
+field_diag.format = plotfile
+field_diag.intervals = 100
+field_diag.write_species = 0
+
+# geometry
+geometry.dims = 2
+geometry.prob_hi = 0.02 0.02
+geometry.prob_lo = -0.02 -0.02
+
+# max_step
+max_step = 50
+
+# particle_diag
+particle_diag.diag_type = Full
+particle_diag.fields_to_plot = none
+particle_diag.file_prefix = Python_BRsimulation_e/Python_BRsimulation_particle
+particle_diag.format = plotfile
+particle_diag.intervals = 100
+particle_diag.species = beam
+particle_diag.write_species = 1
+
+# particle_energy_diag
+particle_energy_diag.diag_type = Full
+particle_energy_diag.fields_to_plot = none
+particle_energy_diag.file_prefix = Python_BRsimulation_e/Python_BRsimulation_radiation
+particle_energy_diag.format = plotfile
+particle_energy_diag.intervals = 1
+particle_energy_diag.write_species = 1
+
+# particles
+particles.species_names = beam
+
+# warpx
+warpx.cfl = 1.0
+warpx.do_dive_cleaning = 0
+warpx.do_dynamic_scheduling = 0
+warpx.serialize_initial_conditions = 1
+warpx.use_filter = 1
+warpx.verbose = 1

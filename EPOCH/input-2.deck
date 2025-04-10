@@ -1,0 +1,552 @@
+#Hosing instabily,wide in y
+#with EPOCH photons
+begin:constant
+  gamma_f = 19753                        #gamma factor for beam
+  beam_v = c*sqrt(1.0-(1.0/(gamma_f*gamma_f)))     #speed of moving beam
+  beta = sqrt(beam_v*beam_v/(c*c))
+  em_zd = 50e-9    #normalized emittances
+  em_yd = 50e-9
+  em_zw = 50e-9    #normalized emittances
+  em_yw = 50e-9
+  mas_e = 9e-31     #mass of electron
+  pifac = sqrt(2.0*pi)*sqrt(2.0*pi)*sqrt(2.0*pi)  #just a factor
+
+
+
+  #drive beam properties
+  npd = 2e7 		# particle  nos.
+  npcd = 2		# pseudo-particle per cell
+  sig_zd = 13*nano	# z size of beam
+  sigma_zd = sig_zd
+  sig_yd = 13*nano	# y size of beam
+  sigma_yd = sig_yd
+  sig_xd = 100*nano	# x size of beam
+  sigma_xd = sig_xd
+  den_drive = npd	#particle no. density of beam
+  loc_zd = 0	#assumed location of center of beam z coordinate
+  loc_yd = 0
+  loc_xd = 26*micro
+  sigma_zpd = em_zd/(gamma_f*beta*sigma_zd)                  #sigma_xprime for drive
+  drive_ktzbym = sigma_zpd*sigma_zpd*beam_v*beam_v	    #Kb/(T*m)
+  sigma_ypd = em_yd/(gamma_f*beta*sigma_yd)
+  drive_ktybym = sigma_ypd*sigma_ypd*beam_v*beam_v
+  drive_profile = (den_drive/(sigma_xd*sigma_yd*sigma_zd*pifac))*gauss(y,loc_yd,sqrt(2)*sigma_yd)*gauss(z,loc_zd,sqrt(2)*sigma_zd)*gauss(x,loc_xd,sqrt(2)*sigma_xd)
+
+#drive beam properties
+  npd = 2e7 		# particle  nos.
+  npcd = 2		# pseudo-particle per cell
+  sig_zd = 13*nano	# z size of beam
+  sigma_zd = sig_zd
+  sig_yd = 13*nano	# y size of beam
+  sigma_yd = sig_yd
+  sig_xd = 100*nano	# x size of beam
+  sigma_xd = sig_xd
+  den_drive = npd	#particle no. density of beam
+  loc_zd = 0		#assumed location of center of beam z coordinate
+  loc_yd = 0
+  loc_xd = 28*micro
+  sigma_zpd = em_zd/(gamma_f*beta*sigma_zd)                  #sigma_xprime for drive
+  drive_ktzbym = sigma_zpd*sigma_zpd*beam_v*beam_v	    #Kb/(T*m)
+  sigma_ypd = em_yd/(gamma_f*beta*sigma_yd)
+  drive_ktybym = sigma_ypd*sigma_ypd*beam_v*beam_v
+
+
+  drive_profile = (den_drive/(sigma_xd*sigma_yd*sigma_zd*pifac))*gauss(y,loc_yd,sqrt(2)*sigma_yd)*gauss(z,loc_zd,sqrt(2)*sigma_zd)*gauss(x,loc_xd,sqrt(2)*sigma_xd)
+
+
+#drive beam properties
+  npd = 2e7 		# particle  nos.
+  npcd = 2		# pseudo-particle per cell
+  sig_zd = 13*nano	# z size of beam
+  sigma_zd = sig_zd
+  sig_yd = 13*nano	# y size of beam
+  sigma_yd = sig_yd
+  sig_xd = 100*nano	# x size of beam
+  sigma_xd = sig_xd
+  den_drive = npd	#particle no. density of beam
+  loc_zd = 0		#assumed location of center of beam z coordinate
+  loc_yd = 0
+  loc_xd = 30*micro
+  sigma_zpd = em_zd/(gamma_f*beta*sigma_zd)                  #sigma_xprime for drive
+  drive_ktzbym = sigma_zpd*sigma_zpd*beam_v*beam_v	    #Kb/(T*m)
+  sigma_ypd = em_yd/(gamma_f*beta*sigma_yd)
+  drive_ktybym = sigma_ypd*sigma_ypd*beam_v*beam_v
+
+
+  drive_profile = (den_drive/(sigma_xd*sigma_yd*sigma_zd*pifac))*gauss(y,loc_yd,sqrt(2)*sigma_yd)*gauss(z,loc_zd,sqrt(2)*sigma_zd)*gauss(x,loc_xd,sqrt(2)*sigma_xd)
+
+#drive beam properties
+  npd = 2e7 		# particle  nos.
+  npcd =2		# pseudo-particle per cell
+  sig_zd = 13*nano	# z size of beam
+  sigma_zd = sig_zd
+  sig_yd = 13*nano	# y size of beam
+  sigma_yd = sig_yd
+  sig_xd = 100*nano	# x size of beam
+  sigma_xd = sig_xd
+  den_drive = npd	#particle no. density of beam
+  loc_zd = 0		#assumed location of center of beam z coordinate
+  loc_yd = 0
+  loc_xd = 32*micro
+  sigma_zpd = em_zd/(gamma_f*beta*sigma_zd)                  #sigma_xprime for drive
+  drive_ktzbym = sigma_zpd*sigma_zpd*beam_v*beam_v	    #Kb/(T*m)
+  sigma_ypd = em_yd/(gamma_f*beta*sigma_yd)
+  drive_ktybym = sigma_ypd*sigma_ypd*beam_v*beam_v
+
+
+  drive_profile = (den_drive/(sigma_xd*sigma_yd*sigma_zd*pifac))*gauss(y,loc_yd,sqrt(2)*sigma_yd)*gauss(z,loc_zd,sqrt(2)*sigma_zd)*gauss(x,loc_xd,sqrt(2)*sigma_xd)
+
+#drive beam properties
+  npd = 2e7 		# particle  nos.
+  npcd = 2		# pseudo-particle per cell
+  sig_zd = 13*nano	# z size of beam
+  sigma_zd = sig_zd
+  sig_yd = 13*nano	# y size of beam
+  sigma_yd = sig_yd
+  sig_xd = 100*nano	# x size of beam
+  sigma_xd = sig_xd
+  den_drive = npd	#particle no. density of beam
+  loc_zd = 0		#assumed location of center of beam z coordinate
+  loc_yd = 0
+  loc_xd = 34*micro
+  sigma_zpd = em_zd/(gamma_f*beta*sigma_zd)                  #sigma_xprime for drive
+  drive_ktzbym = sigma_zpd*sigma_zpd*beam_v*beam_v	    #Kb/(T*m)
+  sigma_ypd = em_yd/(gamma_f*beta*sigma_yd)
+  drive_ktybym = sigma_ypd*sigma_ypd*beam_v*beam_v
+
+
+  drive_profile = (den_drive/(sigma_xd*sigma_yd*sigma_zd*pifac))*gauss(y,loc_yd,sqrt(2)*sigma_yd)*gauss(z,loc_zd,sqrt(2)*sigma_zd)*gauss(x,loc_xd,sqrt(2)*sigma_xd)
+
+#drive beam properties
+  npd = 2e7 		# particle  nos.
+  npcd = 2		# pseudo-particle per cell
+  sig_zd = 13*nano	# z size of beam
+  sigma_zd = sig_zd
+  sig_yd = 13*nano	# y size of beam
+  sigma_yd = sig_yd
+  sig_xd = 100*nano	# x size of beam
+  sigma_xd = sig_xd
+  den_drive = npd	#particle no. density of beam
+  loc_zd = 0	#assumed location of center of beam z coordinate
+  loc_yd = 0
+  loc_xd = 36*micro
+  sigma_zpd = em_zd/(gamma_f*beta*sigma_zd)                  #sigma_xprime for drive
+  drive_ktzbym = sigma_zpd*sigma_zpd*beam_v*beam_v	    #Kb/(T*m)
+  sigma_ypd = em_yd/(gamma_f*beta*sigma_yd)
+  drive_ktybym = sigma_ypd*sigma_ypd*beam_v*beam_v
+
+
+  drive_profile = (den_drive/(sigma_xd*sigma_yd*sigma_zd*pifac))*gauss(y,loc_yd,sqrt(2)*sigma_yd)*gauss(z,loc_zd,sqrt(2)*sigma_zd)*gauss(x,loc_xd,sqrt(2)*sigma_xd)
+
+
+
+#drive beam properties
+  npd = 2e7 		# particle  nos.
+  npcd = 2		# pseudo-particle per cell
+  sig_zd = 13*nano	# z size of beam
+  sigma_zd = sig_zd
+  sig_yd = 13*nano	# y size of beam
+  sigma_yd = sig_yd
+  sig_xd = 100*nano	# x size of beam
+  sigma_xd = sig_xd
+  den_drive = npd	#particle no. density of beam
+  loc_zd = 0		#assumed location of center of beam z coordinate
+  loc_yd = 0
+  loc_xd = 38*micro
+  sigma_zpd = em_zd/(gamma_f*beta*sigma_zd)                  #sigma_xprime for drive
+  drive_ktzbym = sigma_zpd*sigma_zpd*beam_v*beam_v	    #Kb/(T*m)
+  sigma_ypd = em_yd/(gamma_f*beta*sigma_yd)
+  drive_ktybym = sigma_ypd*sigma_ypd*beam_v*beam_v
+
+
+  drive_profile = (den_drive/(sigma_xd*sigma_yd*sigma_zd*pifac))*gauss(y,loc_yd,sqrt(2)*sigma_yd)*gauss(z,loc_zd,sqrt(2)*sigma_zd)*gauss(x,loc_xd,sqrt(2)*sigma_xd)
+
+#drive beam properties
+  npd = 2e7 		# particle  nos.
+  npcd =2		# pseudo-particle per cell
+  sig_zd = 13*nano	# z size of beam
+  sigma_zd = sig_zd
+  sig_yd = 13*nano	# y size of beam
+  sigma_yd = sig_yd
+  sig_xd = 100*nano	# x size of beam
+  sigma_xd = sig_xd
+  den_drive = npd	#particle no. density of beam
+  loc_zd = 0		#assumed location of center of beam z coordinate
+  loc_yd = 0
+  loc_xd = 40*micro
+  sigma_zpd = em_zd/(gamma_f*beta*sigma_zd)                  #sigma_xprime for drive
+  drive_ktzbym = sigma_zpd*sigma_zpd*beam_v*beam_v	    #Kb/(T*m)
+  sigma_ypd = em_yd/(gamma_f*beta*sigma_yd)
+  drive_ktybym = sigma_ypd*sigma_ypd*beam_v*beam_v
+
+
+  drive_profile = (den_drive/(sigma_xd*sigma_yd*sigma_zd*pifac))*gauss(y,loc_yd,sqrt(2)*sigma_yd)*gauss(z,loc_zd,sqrt(2)*sigma_zd)*gauss(x,loc_xd,sqrt(2)*sigma_xd)
+
+ #drive beam properties
+  npd = 2e7 		# particle  nos.
+  npcd =2		# pseudo-particle per cell
+  sig_zd = 13*nano	# z size of beam
+  sigma_zd = sig_zd
+  sig_yd = 13*nano	# y size of beam
+  sigma_yd = sig_yd
+  sig_xd = 100*nano	# x size of beam
+  sigma_xd = sig_xd
+  den_drive = npd	#particle no. density of beam
+  loc_zd = 0		#assumed location of center of beam z coordinate
+  loc_yd = 0
+  loc_xd = 42*micro
+  sigma_zpd = em_zd/(gamma_f*beta*sigma_zd)                  #sigma_xprime for drive
+  drive_ktzbym = sigma_zpd*sigma_zpd*beam_v*beam_v	    #Kb/(T*m)
+  sigma_ypd = em_yd/(gamma_f*beta*sigma_yd)
+  drive_ktybym = sigma_ypd*sigma_ypd*beam_v*beam_v
+
+
+  drive_profile = (den_drive/(sigma_xd*sigma_yd*sigma_zd*pifac))*gauss(y,loc_yd,sqrt(2)*sigma_yd)*gauss(z,loc_zd,sqrt(2)*sigma_zd)*gauss(x,loc_xd,sqrt(2)*sigma_xd)
+
+
+ #drive beam properties
+  npd = 2e7 		# particle  nos.
+  npcd = 2		# pseudo-particle per cell
+  sig_zd = 13*nano	# z size of beam
+  sigma_zd = sig_zd
+  sig_yd = 13*nano	# y size of beam
+  sigma_yd = sig_yd
+  sig_xd = 100*nano	# x size of beam
+  sigma_xd = sig_xd
+  den_drive = npd	#particle no. density of beam
+  loc_zd = 0		#assumed location of center of beam z coordinate
+  loc_yd = 0
+  loc_xd = 44*micro
+  sigma_zpd = em_zd/(gamma_f*beta*sigma_zd)                  #sigma_xprime for drive
+  drive_ktzbym = sigma_zpd*sigma_zpd*beam_v*beam_v	    #Kb/(T*m)
+  sigma_ypd = em_yd/(gamma_f*beta*sigma_yd)
+  drive_ktybym = sigma_ypd*sigma_ypd*beam_v*beam_v
+
+
+  drive_profile = (den_drive/(sigma_xd*sigma_yd*sigma_zd*pifac))*gauss(y,loc_yd,sqrt(2)*sigma_yd)*gauss(z,loc_zd,sqrt(2)*sigma_zd)*gauss(x,loc_xd,sqrt(2)*sigma_xd)
+
+
+#witness beam properties
+  npw = 2e6		# particle  nos.
+  npcw = 8		# pseudo-particle per cell
+  sig_zw = 13*nano	# z size of beam
+  sigma_zw = sig_zw
+  sig_yw = 13*nano	# y size of beam
+  sigma_yw = sig_yw
+  sig_xw = 100*nano	# x size of beam
+  sigma_xw = sig_xw
+  den_wit = npw
+  loc_zw = 0
+  loc_yw = 0
+  loc_xw = 24.45*micro
+  sigma_zpw = em_zw/(gamma_f*beta*sigma_zw)
+  wit_ktzbym = sigma_zpw*sigma_zpw*beam_v*beam_v
+  sigma_ypw = em_yw/(gamma_f*beta*sigma_yw)
+  wit_ktybym = sigma_ypw*sigma_ypw*beam_v*beam_v
+
+  wit_profile = (den_wit/(sigma_xw*sigma_yw*sigma_zw*pifac))*gauss(y,loc_yw,sqrt(2)*sigma_yw)*gauss(z,loc_zw,sqrt(2)*sigma_zw)*gauss(x,loc_xw,sqrt(2)*sigma_xw)
+
+
+
+
+
+
+ #plasma properties
+  den_plasma = 4e26   #particle no density
+  npcp       = 2 	   #pseudo-particle per cell
+  plasma_ion_mass = 1836*7 #ionised lithium plasma
+  plasma_ion_charge = 1
+
+
+  c_by_omegap = 26.7*micro   #constant
+
+end:constant
+
+
+begin:control
+
+  z_min = 0.0*micro
+  z_max = 36*micro
+  y_min = 0.0*micro
+  y_max = 36*micro
+  x_min = 0.0*micro
+  x_max = 66*micro
+  nz=320
+  ny=320
+  nx=320
+  t_end = (0.1)/(abs(beam_v))
+  stdout_frequency = 100
+  # Other
+  use_random_seed = T
+#  use_multiphoton = T
+  smooth_currents =T
+  smooth_iterations = 2
+  smooth_compensation = T
+  smooth_strides = auto
+end:control
+
+
+
+begin:boundaries
+
+  bc_x_min=open
+  bc_x_max=open
+  bc_y_min=open
+  bc_y_max=open
+  bc_z_min=open
+  bc_z_max=open
+
+end:boundaries
+
+
+
+
+begin:qed
+
+use_qed = T
+qed_start_time = 0
+produce_photons = T
+photon_energy_min = 0.001 * kev
+photon_dynamics = T
+qed_table_location = ./TABLES
+
+end:qed
+
+
+begin:species
+
+name = photons
+npart = 0
+dump = T
+identify:photon
+
+end:species
+
+
+
+begin:species
+
+  name = drive1
+  charge = -1.0
+  mass = 1.0
+  npart_per_cell =  10 * npcd
+  drift_x = (9e-31)*beam_v*gamma_f
+  density = drive_profile
+  #alpha=0
+  temp_z = mas_e*drive_ktzbym/kb
+  temp_y = mas_e*drive_ktybym/kb
+  identify:electron
+
+
+end:species
+begin:species
+
+  name = drive2
+  charge = -1.0
+  mass = 1.0
+  npart_per_cell =  10*npcd
+  drift_x = (9e-31)*beam_v*gamma_f
+  density = drive_profile
+  #alpha=0
+  temp_z = mas_e*drive_ktzbym/kb
+  temp_y = mas_e*drive_ktybym/kb
+  identify:electron
+
+
+end:species
+begin:species
+
+  name = drive3
+  charge = -1.0
+  mass = 1.0
+  npart_per_cell =  10*npcd
+  drift_x = (9e-31)*beam_v*gamma_f
+  density = drive_profile
+  #alpha=0
+  temp_z = mas_e*drive_ktzbym/kb
+  temp_y = mas_e*drive_ktybym/kb
+  identify:electron
+
+
+end:species
+begin:species
+
+  name = drive4
+  charge = -1.0
+  mass = 1.0
+  npart_per_cell =  10*npcd
+  drift_x = (9e-31)*beam_v*gamma_f
+  density = drive_profile
+  #alpha=0
+  temp_z = mas_e*drive_ktzbym/kb
+  temp_y = mas_e*drive_ktybym/kb
+  identify:electron
+
+
+end:species
+begin:species
+
+  name = drive5
+  charge = -1.0
+  mass = 1.0
+  npart_per_cell = 10*npcd
+  drift_x = (9e-31)*beam_v*gamma_f
+  density = drive_profile
+  #alpha=0
+  temp_z = mas_e*drive_ktzbym/kb
+  temp_y = mas_e*drive_ktybym/kb
+  identify:electron
+
+
+end:species
+
+begin:species
+
+  name = drive6
+  charge = -1.0
+  mass = 1.0
+  npart_per_cell =  10*npcd
+  drift_x = (9e-31)*beam_v*gamma_f
+  density = drive_profile
+  #alpha=0
+  temp_z = mas_e*drive_ktzbym/kb
+  temp_y = mas_e*drive_ktybym/kb
+  identify:electron
+
+
+end:species
+begin:species
+
+  name = drive7
+  charge = -1.0
+  mass = 1.0
+  npart_per_cell =  10*npcd
+  drift_x = (9e-31)*beam_v*gamma_f
+  density = drive_profile
+  #alpha=0
+  temp_z = mas_e*drive_ktzbym/kb
+  temp_y = mas_e*drive_ktybym/kb
+  identify:electron
+
+
+end:species
+begin:species
+
+  name = drive8
+  charge = -1.0
+  mass = 1.0
+  npart_per_cell =  10*npcd
+  drift_x = (9e-31)*beam_v*gamma_f
+  density = drive_profile
+  #alpha=0
+  temp_z = mas_e*drive_ktzbym/kb
+  temp_y = mas_e*drive_ktybym/kb
+  identify:electron
+
+
+end:species
+begin:species
+
+  name = drive9
+  charge = -1.0
+  mass = 1.0
+  npart_per_cell = 10*npcd
+  drift_x = (9e-31)*beam_v*gamma_f
+  density = drive_profile
+  #alpha=0
+  temp_z = mas_e*drive_ktzbym/kb
+  temp_y = mas_e*drive_ktybym/kb
+  identify:electron
+
+
+end:species
+begin:species
+
+  name = drive10
+  charge = -1.0
+  mass = 1.0
+  npart_per_cell = 10*npcd
+  drift_x = (9e-31)*beam_v*gamma_f
+  density = drive_profile
+  #alpha=0
+  temp_z = mas_e*drive_ktzbym/kb
+  temp_y = mas_e*drive_ktybym/kb
+  identify:electron
+
+
+end:species
+
+begin:species
+
+  name = wit
+  charge = -1.0
+  mass = 1.0
+  npart_per_cell = 10* npcw
+  drift_x = (9e-31)*beam_v*gamma_f
+  density = wit_profile
+  temp_z = mas_e*wit_ktzbym/kb
+  temp_y = mas_e*wit_ktybym/kb
+  identify:electron
+end:species
+
+
+
+
+begin:species
+
+  name = plasma_e
+  charge = -1.0
+  mass = 1.0
+  npart_per_cell = 10*npcp
+  density = den_plasma
+
+
+end:species
+
+begin:species
+
+  name = plasma_ion
+  charge = plasma_ion_charge
+  mass = plasma_ion_mass
+  npart_per_cell = 10* npcp
+  density = den_plasma
+  immobile = F
+  background_species = T
+
+end:species
+
+
+begin:window
+
+  move_window = T
+  window_v_x = beam_v
+  window_start_time = 0.0
+  bc_x_min_after_move = simple_outflow
+
+
+end:window
+
+
+begin:output
+
+dt_snapshot = t_end/10000
+full_dump_every = 1
+force_last_to_be_restartable = T
+dump_last = T
+dump_source_code = T
+particle_grid = always
+px = always
+py = always
+pz = always
+particle_weight = always
+id = always
+grid = always
+ex = always
+ey = always
+ez = always
+number_density = always + species
+total_energy_sum = always
+
+
+
+end:output
